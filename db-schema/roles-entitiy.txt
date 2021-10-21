@@ -1,16 +1,16 @@
+CREATE KEYSPACE test
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
 create table role(
-tenantId text,
-appId UUID,
-roleID text,
-roleName text,
+tenant_id text,
+app_id UUID,
+role_id text,
+role_name text,
 permissions set<text>,
-managedBy text, 
-canGrantToUsers boolean,
-canGrantToApps boolean,
-isActive boolean,
-isDeleted boolean,
-PRIMARY KEY((tenantId, appId), roleId)
-)
-
-) with comment = 'Platform role which can be mapped to a user group, service or app'
-
+managed_by text, 
+can_grant_to_users boolean,
+can_grant_to_apps boolean,
+is_active boolean,
+is_deleted boolean,
+PRIMARY KEY((tenant_id, app_id), role_id)
+) with comment = 'Platform role which can be mapped to a user group, service or app';

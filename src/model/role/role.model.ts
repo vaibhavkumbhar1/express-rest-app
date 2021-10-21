@@ -3,7 +3,7 @@ import { Set } from "typescript"
 export interface Role {
     tenantId: string,
     appId: string,
-    roleID: string,
+    roleId: string,
     roleName: string,
     permissions: Set<string>,
     managedBy: string,
