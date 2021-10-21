@@ -1,0 +1,16 @@
+create table role(
+tenantId text,
+appId UUID,
+roleID text,
+roleName text,
+permissions set<text>,
+managedBy text, 
+canGrantToUsers boolean,
+canGrantToApps boolean,
+isActive boolean,
+isDeleted boolean,
+PRIMARY KEY((tenantId, appId), roleId)
+)
+
+) with comment = 'Platform role which can be mapped to a user group, service or app'
+
