@@ -22,6 +22,7 @@
     "@types/supertest": "^2.0.11",
     "camelcase-keys": "^7.0.1",
     "cassandra-driver": "^4.6.3",
+    "config": "^3.3.6",
     "express": "^4.17.1",
     "jest": "^27.3.0",
     "nodemon": "^2.0.13",
@@ -36,6 +37,7 @@
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "@babel/preset-typescript": "^7.15.0",
+    "@types/config": "^0.0.39",
     "@types/jest": "^27.0.2",
     "babel-jest": "^27.3.0"
   }

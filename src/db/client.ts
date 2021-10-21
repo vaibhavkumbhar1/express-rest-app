@@ -1,13 +1,15 @@
 import cassandra from "cassandra-driver";
+import config from 'config';
+import { CassandraConfig } from '../config/CassandraConfig';
+
+
+const cassandraConfig: CassandraConfig = config.get("cassandra")
 
 const CASSANDRA: cassandra.DseClientOptions = {
-    contactPoints: ['127.0.0.1'],
-    localDataCenter: 'datacenter1',
-    credentials: {
-        username: '',
-        password: '',
-    },
-    keyspace: 'test',
+    contactPoints: cassandraConfig.contactPoints,
+    localDataCenter: cassandraConfig.localDataCenter,
+    credentials: cassandraConfig.credentials,
+    keyspace: cassandraConfig.keyspace,
 };
 
 

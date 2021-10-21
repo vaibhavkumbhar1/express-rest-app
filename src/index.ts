@@ -2,33 +2,20 @@ import express, { Application, Errback, ErrorRequestHandler, Request, Response, 
 import userRouter from './routes/user.routes'
 import { NextFunction } from 'express';
 import { rolesRouter } from './routes/role.routes';
+import config from 'config';
 const app: Application = express();
 const router: Router = express.Router();
 
-router.get('/', (req: Request, res: Response): void => {
-    res.send('Hello, World');
-});
 
+router.get('/', (req: Request, res: Response): void => {
+  res.send('Hello, World');
+});
 
 
 router.get("/home", (req, res, next):void =>{
 
 
-    res.json({id:"12345", name:"Vaibhav"})
-
-    next();
-})
-
-router.use(function (req, res, next) {
-    console.log('Router middleware Time:', Date.now())
-    next()
-  })
-  
-
-app.use(function myLogger(req, res, next){
-    console.log("Request pAth: "+req.path, "Req Query: ",req.query);
-
-    console.log()
+    res.json({id:"12345", page:"home"})
 
     next();
 })
@@ -46,11 +33,13 @@ app.use(function (err:Error, req:Request, res:Response, next:NextFunction){
 }
 )
 
-console.log('The Server is listening on the port 3000');
-const server=app.listen(3000);
+console.log('The Server is listening on the port '+config.get("server.port") );
+const server=app.listen(config.get("server.port"));
 
 
 
+
+//Gracefully shutdown nodejs
 process.on('SIGTERM', () => {
     
   

@@ -1,0 +1,17 @@
+{
+    "server": {
+        "port": 8081,
+        "hostname": "localhost"
+    },
+    "cassandra": {
+        "contactPoints": [
+            "127.0.0.1"
+        ],
+        "localDataCenter": "datacenter1",
+        "credentials": {
+            "username": "",
+            "password": ""
+        },
+        "keyspace": "test"
+    }
+}
