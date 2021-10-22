@@ -1,7 +1,8 @@
 {
     "server": {
         "port": 8081,
-        "hostname": "localhost"
+        "hostname": "localhost",
+        "contextPath":"/core/api/v1/aaa"
     },
     "cassandra": {
         "contactPoints": [

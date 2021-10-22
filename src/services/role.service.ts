@@ -16,7 +16,7 @@ export class RoleService {
 
         try {
             var roleId = `Platform:Role:${role.appId}:${role.roleName}`;
-            await this.roleRepository.save(
+            await this.roleRepository.saveV1(
                 {
                     ...role,
                     roleId: roleId

@@ -1,4 +1,4 @@
-import { REQUEST_ID_HEADER, TENANT_ID_HEADER } from './constants';
+import { REQUEST_ID_HEADER, TENANT_ID_HEADER } from './constants/constants';
 
 export const getRequestId = (requestObj: { [key: string]: any }) => {
 	const requestId = requestObj.headers[REQUEST_ID_HEADER.toLowerCase()];

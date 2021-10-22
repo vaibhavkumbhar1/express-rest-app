@@ -1,8 +1,8 @@
-import express, { Application, Errback, ErrorRequestHandler, Request, Response, Router } from 'express';
-import userRouter from './routes/user.routes'
-import { NextFunction } from 'express';
-import { rolesRouter } from './routes/role.routes';
 import config from 'config';
+import express, { Application, NextFunction, Request, Response, Router } from 'express';
+import { rolesRouter } from './routes/role.routes';
+import userRouter from './routes/user.routes';
+import { CONTEXT_PATH, USERS_ROUTE } from './utils/constants';
 const app: Application = express();
 const router: Router = express.Router();
 
@@ -12,10 +12,10 @@ router.get('/', (req: Request, res: Response): void => {
 });
 
 
-router.get("/home", (req, res, next):void =>{
+router.get(CONTEXT_PATH, (req, res, next):void =>{
 
 
-    res.json({id:"12345", page:"home"})
+    res.json({appName:"AAA", page:CONTEXT_PATH})
 
     next();
 })
@@ -24,8 +24,8 @@ router.get("/home", (req, res, next):void =>{
 app.use(express.json());
 
 app.use(router);
-app.use("/user", userRouter);
-app.use("/role", rolesRouter);
+app.use(USERS_ROUTE, userRouter);
+app.use(CONTEXT_PATH, rolesRouter);
 
 app.use(function (err:Error, req:Request, res:Response, next:NextFunction){
     console.error(err.stack)
