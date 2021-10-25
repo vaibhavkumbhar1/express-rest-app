@@ -7,7 +7,7 @@ var userRouter = express.Router()
 userRouter.use(function timeLog(req: Request, res: Response, next: NextFunction) {
 
 
-    console.log("TIme: " + Date.now())
+    console.log("Time: " + Date.now())
 
     next();
 })

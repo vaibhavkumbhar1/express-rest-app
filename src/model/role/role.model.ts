@@ -5,9 +5,10 @@ export interface Role {
     appId: string,
     roleId: string,
     roleName: string,
-    permissions: Set<string>,
+    permissions: Set<string>|null,
     managedBy: string,
     canGrantToUsers: boolean,
     canGrantToApps: boolean,
     isActive: boolean,
+    IsDeleted: boolean
 }

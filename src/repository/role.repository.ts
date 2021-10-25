@@ -3,6 +3,7 @@ import cassandra from "cassandra-driver";
 import { throwable } from "ts-throwable";
 import { client, client as db } from "../db/client";
 import { Role } from "../model/role/role.model";
+import { DBError } from '../exceptions/DBError';
 
 export class RoleRepository {
     client: cassandra.Client;
@@ -44,7 +45,7 @@ export class RoleRepository {
             const errorMessage = `Error while registering role: ${(error as Error).message
                 }`;
 
-            throw new Error(errorMessage);
+            throw new DBError(errorMessage);
         }
     }
 
@@ -62,7 +63,7 @@ export class RoleRepository {
             const errorMessage = `Error while registering role: ${(error as Error).message
                 }`;
 
-            throw new Error(errorMessage);
+            throw new DBError(errorMessage);
         }
     }
 
@@ -77,7 +78,7 @@ export class RoleRepository {
         } catch (error) {
             const errorMessage = `Error while retriving registered apps: ${(error as Error).message
                 }`;
-            throw new Error(errorMessage);
+            throw new DBError(errorMessage);
         }
     };
 
@@ -93,7 +94,7 @@ export class RoleRepository {
         } catch (error) {
             const errorMessage = `Error while retriving registered apps: ${(error as Error).message
                 }`;
-            throw new Error(errorMessage);
+            throw new DBError(errorMessage);
         }
     }
 
@@ -123,7 +124,7 @@ export class RoleRepository {
         } catch (error) {
             const errorMessage = `Error while retriving registered apps: ${(error as Error).message
                 }`;
-            throw new Error(errorMessage);
+            throw new DBError(errorMessage);
         }
     }
 }
