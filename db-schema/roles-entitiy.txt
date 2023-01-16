@@ -14,3 +14,4 @@ is_active boolean,
 is_deleted boolean,
 PRIMARY KEY((tenant_id, app_id), role_id)
 ) with comment = 'Platform role which can be mapped to a user group, service or app';
+
